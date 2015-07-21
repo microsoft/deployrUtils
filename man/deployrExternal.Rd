@@ -18,8 +18,6 @@ This function provides you with a consistent way of referencing these big data f
 \strong{Important!} In order to get your big data files into the DeployR environment, you must first ask the DeployR administrator to place a copy of those files in the appropriate external directory on the server on your behalf. Once the files have been copied onto the server, your R code can reference these files by specifying the filename as an argument on the \code{deployrExternal} function.
 
 When your code executes locally, the function looks for the data files in the current working directory of your R session. When your code executes remotely on the DeployR server, the function looks for the data files in the dedicated external directories configured and managed by the DeployR administrator.
-
-For more information on configuring or using external directories, see the \sQuote{Writing Portable R Code} document for your DeployR version on the official DeployR website (\url{http://deployr.revolutionanalytics.com/documents/dev/scientist-portable-code/}).
 }
 \details{
 The \code{deployrExternal} function allows you access to file data portably by identifying the filename as an argument on the function call. The function then locates the file for you as follows:

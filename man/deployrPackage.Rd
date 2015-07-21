@@ -19,8 +19,6 @@ deployrPackage(pkgs, lib, repos = getOption("repos"), ...)
 The \code{deployrPackage} function guarantees package portability from your local environment to the DeployR server environment when you use it to declare all of the package dependencies in your R script.
 
 This function safeguards your R code by making certain that the necessary packages are available to your R code at runtime.
-
-For more information on ensuring package portability, see the \sQuote{Writing Portable R Code} document for your DeployR version on the official DeployR website (\url{http://deployr.revolutionanalytics.com/documents/dev/scientist-portable-code/}).
 }
 \details{
 Declare the set of package dependencies using this function at the top of your script.

@@ -29,9 +29,6 @@ The inputs can be used to:
    \item{Test a script locally within your R IDE environment AND again remotely within the DeployR Repository Manager Test page. In both test cases, use the default values to verify consistent behavior across environments.}
    \item{Provide client application developers with clear guidance as to which script inputs their application will be required to supply to produce meaningful output.}
 }
-
-
-For more information on declaring your inputs, see the \sQuote{Writing Portable R Code} document for your DeployR version on the official DeployR website (\url{http://deployr.revolutionanalytics.com/documents/dev/scientist-portable-code/}).
 }
 \details{
 The  \code{name}, \code{render}, and \code{default} arguments are required. The entire input to the \code{deployrInput} function must be a valid JSON string. Within that string, JSON dictates that the argument names be double-quoted as should any strings.
