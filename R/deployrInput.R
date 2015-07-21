@@ -8,6 +8,8 @@
 #'    \item{Provide client application developers with clear guidance as to which script inputs their application will be required to supply to produce meaningful output.}
 #' }
 #'
+#' 
+#' For more information on declaring your inputs, see the \sQuote{Writing Portable R Code} document for your DeployR version on the official DeployR website (\url{http://deployr.revolutionanalytics.com/documents/dev/scientist-portable-code/}).
 #'    
 #' @param content  A valid JSON string configuration using the following 
 #'   structure:

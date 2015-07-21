@@ -7,7 +7,7 @@
 #' 
 #' When your code executes locally, the function looks for the data files in the current working directory of your R session. When your code executes remotely on the DeployR server, the function looks for the data files in the dedicated external directories configured and managed by the DeployR administrator.
 #' 
-#' For more information on configuring or using external directories, see the \sQuote{Working with Big Data Files} document for your DeployR version on the official DeployR website (\url{http://deployr.revolutionanalytics.com}).
+#' For more information on configuring or using external directories, see the \sQuote{Writing Portable R Code} document for your DeployR version on the official DeployR website (\url{http://deployr.revolutionanalytics.com/documents/dev/scientist-portable-code/}).
 #' 
 #' @param file Required. A character string specifying a valid filename with its extension. 
 #' @param isPublic Optional. If \code{isPublic = NULL} or \code{isPublic = FALSE} and code is running on DeployR, then the file is assumed to be in your private user external directory. If \code{isPublic = TRUE} and code is running on DeployR, then the file is assumed to be in the public external directory. Since the usage of the public external directory is ultimately a deployment decision, please coordinate with the application developer(s) before enabling this argument.
