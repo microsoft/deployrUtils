@@ -34,7 +34,7 @@ Note: If you declare your package dependencies with this function and your scrip
   # Use deployrPackage() to ensure package dependencies are
   # installed & loaded at the start of your script.
 
-  deployrPackage("checkpoint")
+  deployrPackage("ggplot2")
 }
 }
 \keyword{load}
