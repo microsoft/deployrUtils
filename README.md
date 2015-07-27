@@ -29,6 +29,8 @@ library(devtools)
 install_github("deployr/deployrUtils")
 ```
 
+See [devtools](https://github.com/hadley/devtools) for more options.
+
 ## Usage
 
 Install and load R packages to ensure package portability:
