@@ -27,7 +27,7 @@
 #'   # Use deployrPackage() to ensure package dependencies are 
 #'   # installed & loaded at the start of your script.
 #'   
-#'   deployrPackage("checkpoint")
+#'   deployrPackage("ggplot2")
 #' }
 #' 
 #' @keywords load packages
