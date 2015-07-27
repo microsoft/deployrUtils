@@ -31,15 +31,6 @@ install_github("deployr/deployrUtils")
 
 ## Usage
 
-Declare inputs to ensure R script input portability:
-
-```R
-# Creates a `character` variable named `char` if it does not exist
-> deployrInput('{ "name": "char", "render": "character", "default": "Hello" } ')
-> char
-[1] "Hello"
-```
-
 Install and load R packages to ensure package portability:
 
 ```R
@@ -52,6 +43,15 @@ Loading required package: checkpoint
 ...
 checkpoint: Part of the Reproducible R Toolkit from Revolution Analytics
 http://projects.revolutionanalytics.com/rrt/
+```
+
+Declare inputs to ensure R script input portability:
+
+```R
+# Creates a `character` variable named `char` if it does not exist
+> deployrInput('{ "name": "char", "render": "character", "default": "Hello" } ')
+> char
+[1] "Hello"
 ```
 
 Access big data files in a portable way across environments:
