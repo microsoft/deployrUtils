@@ -38,22 +38,22 @@ Install and load R packages to ensure package portability:
 ```R
 # Use `deployrPackage()` to ensure package dependencies are installed & loaded 
 # at the start of your script.
-> deployrPackage("checkpoint")
-Loading required package: checkpoint
+> deployrPackage("ggplot2")
+Loading required package: ggplot2
 ...
 ...
 ...
-checkpoint: Part of the Reproducible R Toolkit from Revolution Analytics
-http://projects.revolutionanalytics.com/rrt/
+Loading required package: ggplot2
+> ?ggplot2
 ```
 
 Declare inputs to ensure R script input portability:
 
 ```R
 # Creates a `character` variable named `char` if it does not exist
-> deployrInput('{ "name": "char", "render": "character", "default": "Hello" } ')
-> char
-[1] "Hello"
+> deployrInput('{ "name": "balance", "render": "integer", "default": "500" } ')
+> balance
+[1] 500
 ```
 
 Access big data files in a portable way across environments:
