@@ -22,19 +22,38 @@ When your code executes locally, the function looks for the data files in the cu
 \details{
 The \code{deployrExternal} function allows you access to file data portably by identifying the filename as an argument on the function call. The function then locates the file for you as follows:
 \itemize{
-   \item{In your local environment, the function looks for the data file in the current working directory for your local R session. In order for your R code to locate the local file with this function, make certain that a copy of the data file exists in your local working directory.}
-   \item{In your remote DeployR environment, the function locates the data file on your behalf without requiring you to know the exact physical location of the file on the DeployR server. In order for your R code to find the file data, ask your DeployR administrator to physically store a copy in the external directory for you. }
+   \item{In your local environment, the function looks for the data file in the current working directory for your local R session. In order for your R code to locate the local file with this function, make certain that a copy of the data file exists in your local working directory. Any references to the \code{isPublic} argument are ignored.}
+   \item{In your remote DeployR environment, the function locates the data file without requiring you to know the exact physical location of the file on the DeployR server. In order for your R code to find the file data, ask your DeployR administrator to physically store a copy in the external directory for you. The function looks in your private directory unless \code{isPublic = TRUE}, in which case it looks in the public external directory.  Note: This function will not permit R code to write to files in the public external directory.}
 }
 \strong{Important!} If your R code fails on the DeployR server, ask your DeployR administrator to verify that the files you sent him or her were, in fact, deployed to the external directories.
 }
 \examples{
 \dontrun{
 
-    ##Referencing a CSV data file in your external directory
+    ## READ CSV FILE
+    ## Local: find in current working directory
+    ## DeployR: find in user's external directory
     data <- read.csv(file = deployrExternal("data.csv"))
 
-    ##Referencing an XDF data file in your external directory
+    ## READ CSV FILE
+    ## Local: find in current working directory
+    ## DeployR: find in public external directory
+    data <- read.csv(file = deployrExternal("data.csv", isPublic = TRUE))
+
+    ## READ XDF FILE FROM SCALER & STORE AS DATAFRAME (df)
+    ## Local: find in current working directory
+    ## DeployR: find in user's external directory
     df <- RxXdfData(deployrExternal("data.xdf"))
+
+    ## WRITE TO CSV FILE
+    ## Local: write to current working directory
+    ## DeployR: write to user's external directory
+    write.csv(file = deployrExternal("data.csv"))
+
+    ## WRITE TO XDF FILE FROM DATAFRAME
+    ## Local: write to current working directory
+    ## DeployR: write to user's external directory
+    rxDataFrameToXdf(data = df, outFile = deployrExternal("data.xdf"), overwrite = TRUE)
 }
 }
 
