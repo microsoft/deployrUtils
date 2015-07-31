@@ -87,7 +87,7 @@ deployrInput <- function(content) {
   for(i in 1:length(JSONResult)) {
     assign(n[i], JSONResult[[i]])
   }
-  
+
   #
   # create an object whose value is either the default or the value set in the
   # name parameter.  This allows the object to exist prior to using the UI
@@ -98,7 +98,11 @@ deployrInput <- function(content) {
   
   # if "name" variable exists, use it instead of default
   if (!is.null(name)) {
-    if (exists(name)) x <- get(name) 
+    if (exists(name) && is.null(default)) {
+      x <- get(name)  
+    } else if (exists(name)) {
+      return
+    } 
   }
   
   #

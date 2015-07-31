@@ -8,20 +8,17 @@ getJSON <- function(json) {
   at <- 1;
   ch <- ' ';
   
-  white <- function () {
-    
-    ## Skip whitespace.
-    
+  white <- function () {    
+    ## Skip whitespace.    
     while (TRUE) {
       JSON_nextc();
-      if(ch != ' ')break;
+      if (ch != ' ') { break; }
     }
   }
   
-  JSON_nextc <- function (c=NULL) {    
+  JSON_nextc <- function (c=NULL) {      
     ## If a c parameter is provided, verify that it matches the current 
-    ## character.
-    
+    ## character.    
     if (!is.null(c) && c != ch) {
       JSON_error(paste("Expected '", c, "' instead of '", ch, "'", sep=""))
     }
@@ -30,8 +27,11 @@ getJSON <- function(json) {
     ## return the empty string.
     while(TRUE) {
       ch <<- substr(source,at,at);
-      at <<- at + 1;
-      if(ch != ' ')return(ch)           
+      at <<- at + 1;         
+      
+      if (ch != ' ' || (ch == ' ' && ignoreWhiteScape == TRUE)) {
+        return(ch) 
+      } 
     }
   }
   
@@ -45,22 +45,23 @@ getJSON <- function(json) {
       JSON_nextc('-');
     }
     while ((ch >= '0' && ch <= '9') || ch == '.' ) {
-      string <- paste(string,ch,sep="")
+      string <- paste(string, ch, sep="")
       JSON_nextc();
     }
    
     if (ch == 'e' || ch == 'E') {
-      string <- paste(string,ch,sep="")
+      string <- paste(string, ch, sep="")
       JSON_nextc();
       if (ch == '-' || ch == '+') {
-        string <- paste(string,ch,sep="")
+        string <- paste(string, ch, sep="")
         JSON_nextc();
       }
       while (ch >= '0' && ch <= '9') {
-        string <- paste(string,ch,sep="")
+        string <- paste(string, ch, sep="")
         JSON_nextc();
       }
     }
+    
     number = as.numeric(string);
     return(number);   
   }
@@ -71,14 +72,17 @@ getJSON <- function(json) {
     i <- 0;
     string <- ''
     uffff <- '';
-        
+    ignoreWhiteScape <<- TRUE
+    
     while (JSON_nextc() != "") {
       if (ch == '"' || ch == "'") {
-        JSON_nextc();
+        ignoreWhiteScape <<- FALSE
+        JSON_nextc();               
         return(string);
       }                   
-      string <- paste(string,ch,sep="")
+      string <- paste(string, ch, sep="")
     }
+    
     JSON_error("Bad string");
   }
   
@@ -153,32 +157,38 @@ getJSON <- function(json) {
         JSON_nextc(',');
       }
     }
+    
     JSON_error("Bad object");
   }
   
   JSON_value <- function () {    
     ## Parse a JSON value. It could be an object, an array, a string, a number,
-    ## or a word.    
+    ## or a word.        
     if(ch == '{') return(JSON_object())
     else if(ch == '[') return(JSON_array())
     else if(ch == '"' || ch == "'") return(JSON_string())
     else if(ch == '-') return(JSON_number())
     else {
-      if((ch >= '0' && ch <= '9') || ch == '.' ) return(JSON_number())
-      else return(JSON_word())
+      if((ch >= '0' && ch <= '9') || ch == '.' ) {
+        return(JSON_number())
+      } else {
+        return(JSON_word())
+      }
     }
   }
   
   JSON_error <- function (m) {    
     ## Call stop when something is wrong.
-    stop(paste("error in JSON",m,sep="-"))
-    
+    stop(paste("error in JSON", m, sep="-"))
   }
   
+  ignoreWhiteScape <<- FALSE
+    
   JSON_nextc()
   result <- JSON_value();
   if (ch != "") {
     JSON_error("Syntax error");
   }
+  
   return(result)
 }
