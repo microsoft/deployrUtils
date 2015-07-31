@@ -31,7 +31,8 @@ getJSON <- function(json) {
     while(TRUE) {
       ch <<- substr(source,at,at);
       at <<- at + 1;
-      if(ch != ' ')return(ch)           
+ #     if(ch != ' ')return(ch) 
+      return(ch) 
     }
   }
   
