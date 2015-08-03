@@ -15,18 +15,18 @@ describe("deployrInput", {
     expect_equal(intObj[1], 6)
   })
 
-  it("can be configured to assign a 'number'", {      
-    deployrInput('{ "name": "numObj", "label": "Number", "render": "number", "default": 6 } ')
+  it("can be configured to assign a 'numberic'", {      
+    deployrInput('{ "name": "numObj", "label": "Number", "render": "numeric", "default": 6 } ')
     expect_equal(numObj[1], 6)
   })
   
-  it("can be configured to assign a 'number' with min/max constraint", {      
-    deployrInput('{ "name": "numObj", "label": "Number", "render": "number", "default": 6, "min": 5, "max": 10 } ')
+  it("can be configured to assign a 'numberic' with min/max constraint", {      
+    deployrInput('{ "name": "numObj", "label": "Number", "render": "numeric", "default": 6, "min": 5, "max": 10 } ')
     expect_equal(intObj[1], 6)
   })
   
   it("can be configured to assign a 'logical'", {      
-    deployrInput('{ "name": "logicalObj", "label": "Logical", "render": "logical", "default": TRUE } ')
+    deployrInput('{ "name": "logicalObj", "label": "Logical", "render": "logical", "default": "TRUE" } ')
     expect_equal(logicalObj[1], TRUE)
   })
   
