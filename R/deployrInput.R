@@ -98,11 +98,7 @@ deployrInput <- function(content) {
   
   # if "name" variable exists, use it instead of default
   if (!is.null(name)) {
-    if (exists(name) && is.null(default)) {
-      x <- get(name)  
-    } else if (exists(name)) {
-      return
-    } 
+    if (exists(name)) x<-get(name) 
   }
   
   #
