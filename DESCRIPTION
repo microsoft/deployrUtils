@@ -2,11 +2,7 @@ Package: deployrUtils
 Type: Package
 Title: Develop Portable R Code for Use with DeployR
 Version: 1.0.1
-<<<<<<< HEAD
-Date: 2015-09-27
-=======
 Date: 2015-09-04
->>>>>>> hotfix-v1.0.1
     person("Josee", "Martens", email = "jmartens@microsoft.com", role = "aut"),
     person("Nick", "Riesland", email = "nicr@microsoft.com", role = "ctb"),
     person("Sean", "Wells", email = "seanw@microsoft.com", role = "ctb")
