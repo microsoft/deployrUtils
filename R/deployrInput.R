@@ -82,7 +82,7 @@ deployrInput <- function(content) {
   max = NULL
   levels = NULL
   labels = NULL
-  
+
   n <- names(JSONResult)
   for(i in 1:length(JSONResult)) {
     assign(n[i], JSONResult[[i]])
@@ -98,7 +98,9 @@ deployrInput <- function(content) {
   
   # if "name" variable exists, use it instead of default
   if (!is.null(name)) {
-    if (exists(name)) x<-get(name) 
+    if (exists(name)) {
+      x <- get(name)  
+    }
   }
   
   #
