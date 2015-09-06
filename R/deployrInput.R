@@ -96,7 +96,9 @@ deployrInput <- function(content) {
     x <- default
   }
   
-  # if "name" variable exists, use it instead of default
+  #
+  # if `name` variable exists, use it instead of default
+  #
   if (!is.null(name)) {
     if (exists(name)) {
       x <- get(name)  
@@ -104,23 +106,29 @@ deployrInput <- function(content) {
   }
   
   #
-  # if levels are present, set render to factor, otherwise we don't care what
+  # If levels are present, set render to factor, otherwise we don't care what
   # it is! Make sure it is not null so that we can test it in the rest of this
   # function
   #
   if (is.null(render)){
     if (!is.null(levels)) {
-      render <- 'factor' 
-    } else render <- 'unknown'
+      render <- "factor"
+    } else {
+      render <- "unknown"
+    }
   }
   
-  if (render %in% c('factor', 'ordered')){
-    if (!is.null(labels) & !is.null(levels)) {
+  # 
+  # Assigne `factor` and `ordered-factor` with `levels|labels` if present
+  # to the `default`. Skip if object already exsists and use that.
+  #
+  if (!exists(name) && render %in% c("factor", "ordered")) {
+    if (!is.null(labels) && !is.null(levels)) {      
       x <- get(render)(x, levels = levels, labels = labels)
     } else if (!is.null(levels)) {
       x <- get(render)(x, levels = levels)
     } else {
-      x <- get(render)(x)  
+      x <- get(render)(x) 
     }
   }
   
@@ -133,7 +141,7 @@ deployrInput <- function(content) {
   }
   
   # Not yet using min, max  
-  assign(name, x, envir = .GlobalEnv)
+  assign(name, x, envir = .GlobalEnv) 
 }
 
 #' Define R Script Inputs \bold{deprecated}.
