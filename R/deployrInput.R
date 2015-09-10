@@ -7,7 +7,8 @@
 #'    \item{Test a script locally within your R IDE environment AND again remotely within the DeployR Repository Manager Test page. In both test cases, use the default values to verify consistent behavior across environments.}
 #'    \item{Provide client application developers with clear guidance as to which script inputs their application will be required to supply to produce meaningful output.}
 #' }
-#'
+#' 
+#' For more information on declaring your inputs, see the \sQuote{Writing Portable R Code} document for your DeployR version on the official DeployR website (\url{http://deployr.revolutionanalytics.com/documents/dev/scientist-portable-code/}).
 #'    
 #' @param content  A valid JSON string configuration using the following 
 #'   structure:
@@ -119,7 +120,7 @@ deployrInput <- function(content) {
   }
   
   # 
-  # Assigne `factor` and `ordered-factor` with `levels|labels` if present
+  # Assign `factor` and `ordered-factor` with `levels|labels` if present
   # to the `default`. Skip if object already exsists and use that.
   #
   if (!exists(name) && render %in% c("factor", "ordered")) {
