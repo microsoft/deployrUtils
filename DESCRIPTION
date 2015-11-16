@@ -1,7 +1,7 @@
 Package: deployrUtils
 Type: Package
 Title: Develop Portable R Code for Use with DeployR
-Version: 1.0.1
+Version: 1.0.2
 Date: 2015-09-04
     person("Josee", "Martens", email = "jmartens@microsoft.com", role = "aut"),
     person("Nick", "Riesland", email = "nicr@microsoft.com", role = "ctb"),
