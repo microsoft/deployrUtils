@@ -11,8 +11,8 @@
 #'
 #' @docType package
 #' @name deployrUtils
-#' @author Revolution Analytics
-#' @references \url{http://deployr.revolutionanalytics.com/}
+#' @author Microsoft Corporation
+#' @references \url{http://go.microsoft.com/fwlink/?LinkId=692163}
 #' 
 #' \url{https://github.com/deployr/deployrUtils}
 NULL

@@ -4,7 +4,7 @@
 #'    
 #' This function safeguards your R code by making certain that the necessary packages are available to your R code at runtime.
 #' 
-#' For more information on ensuring package portability, see the \sQuote{Writing Portable R Code} document for your DeployR version on the official DeployR website (\url{http://deployr.revolutionanalytics.com/documents/dev/scientist-portable-code/}).
+#' For more information on ensuring package portability, see the \sQuote{Writing Portable R Code} document for your DeployR version on the official DeployR website (\url{http://go.microsoft.com/fwlink/?LinkId=708337}).
 #'    
 #' @details Declare the set of package dependencies using this function at the top of your script.
 #'    
@@ -16,7 +16,7 @@
 #'   
 #' @param lib  character vector providing the library directories where to install the packages. Recycled as needed. If missing, defaults to the first element of \code{.libPaths().}
 #'   
-#' @param repos  character vector, the base URL(s) of the repositories to use, such as the URL of a CRAN mirror (for example: \url{http://cran.revolutionanalytics.com}.) Can be \code{NULL} to install from local files (with extension \code{.tar.gz} for source packages). \cr Tip: If you develop your own private R packages and want to use them in DeployR, then we recommend storing these packages in a local CRAN repository that is reachable by the DeployR server. For more on setting up a local package repository, visit: \url{http://cran.r-project.org/doc/manuals/r-release/R-admin.html}.
+#' @param repos  character vector, the base URL(s) of the repositories to use, such as the URL of a CRAN mirror (for example: \url{http://go.microsoft.com/fwlink/?LinkId=708336}.) Can be \code{NULL} to install from local files (with extension \code{.tar.gz} for source packages). \cr Tip: If you develop your own private R packages and want to use them in DeployR, then we recommend storing these packages in a local CRAN repository that is reachable by the DeployR server. For more on setting up a local package repository, visit: \url{http://cran.r-project.org/doc/manuals/r-release/R-admin.html}.
 #'   
 #' @param ...  additional arguments to pass to \code{\link{install.packages}} function.
 #'   

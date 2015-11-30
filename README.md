@@ -4,7 +4,7 @@
 
 ## Package Overview
 
-The goal of `deployrUtils` is to solve several R portability issues that arise when developing R analytics for use in your local R environment and in the [DeployR](https://deployr.revolutionanalytics.com) server environment. They are package portability, input portability, and portable access to data files.
+The goal of `deployrUtils` is to solve several R portability issues that arise when developing R analytics for use in your local R environment and in the [DeployR](http://go.microsoft.com/fwlink/?LinkId=692163) server environment. They are package portability, input portability, and portable access to data files.
 
 These portability issues can be solved when you use the following functions in the deployrUtils package.
 
@@ -70,12 +70,12 @@ df <- RxXdfData(deployrExternal("data.xdf"))
 
 **Issues:**
 
-Post an issue at https://github.com/deployr/deployrUtils/issues
+[Post an issue](https://github.com/deployr/deployrUtils/issues)
 
 **Website:**
 
-Learn more at http://deployr.revolutionanalytics.com/documents/dev/scientist-portable-code/
+[Learn more](http://go.microsoft.com/fwlink/?LinkId=708337)
 
 **Made by:**
 
-Revolution Analytics, wholly owned by Microsoft
+Microsoft Corporation
