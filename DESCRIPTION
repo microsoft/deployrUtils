@@ -1,16 +1,21 @@
 Package: deployrUtils
 Type: Package
 Title: Develop Portable R Code for Use with DeployR
-Version: 1.0.1
-Date: 2015-09-04
+Version: 1.0.2
+Date: 2015-11-30
     person("Josee", "Martens", email = "jmartens@microsoft.com", role = "aut"),
     person("Nick", "Riesland", email = "nicr@microsoft.com", role = "ctb"),
     person("Sean", "Wells", email = "seanw@microsoft.com", role = "ctb")
     person("Rich", "Calaway", email = "richcala@microsoft.com", role = "cre"))
 Author: Josee Martens [aut]
 Maintainer: Rich Calaway <richcala@microsoft.com>
-URL: http://deployr.revolutionanalytics.com
+URL: http://go.microsoft.com/fwlink/?LinkId=692163
 BugReports: https://github.com/deployr/deployrUtils/issues
-Description: The goal of this package is to solve several R portability issues that arise when developing R analytics for use in your local R environment and in the DeployR server environment. They are package portability, input portability, and portable access to data files.
+Description: The goal of this package is to solve several R portability issues
+    that arise when developing R analytics for use in your local R environment
+    and in the DeployR server environment. They are package portability, input
+    portability, and portable access to data files.
 License: MIT + file LICENSE
-Suggests: testthat
+Suggests:
+    testthat
+RoxygenNote: 5.0.1
