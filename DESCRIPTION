@@ -2,7 +2,7 @@ Package: deployrUtils
 Type: Package
 Title: Develop Portable R Code for Use with DeployR
 Version: 1.0.2
-Date: 2015-11-30
+Date: 2016-05-03
     person("Josee", "Martens", email = "jmartens@microsoft.com", role = "aut"),
     person("Nick", "Riesland", email = "nicr@microsoft.com", role = "ctb"),
     person("Sean", "Wells", email = "seanw@microsoft.com", role = "ctb")
@@ -10,7 +10,7 @@ Date: 2015-11-30
 Author: Josee Martens [aut]
 Maintainer: Rich Calaway <richcala@microsoft.com>
 URL: http://go.microsoft.com/fwlink/?LinkId=692163
-BugReports: https://github.com/deployr/deployrUtils/issues
+BugReports: https://github.com/Microsoft/deployrUtils/issues
 Description: The goal of this package is to solve several R portability issues
     that arise when developing R analytics for use in your local R environment
     and in the DeployR server environment. They are package portability, input

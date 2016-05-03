@@ -70,7 +70,7 @@ df <- RxXdfData(deployrExternal("data.xdf"))
 
 **Issues:**
 
-[Post an issue](https://github.com/deployr/deployrUtils/issues)
+[Post an issue](https://github.com/Microsoft/deployrUtils/issues)
 
 **Website:**
 
