@@ -74,35 +74,29 @@
 #' 
 #' @export
 deployrInput <- function(content) { 
-  JSONResult <- getJSON(content)
-  name = NULL
-  default = NULL
-  render = NULL
-  label = NULL
-  min = NULL
-  max = NULL
-  levels = NULL
-  labels = NULL
-
-  n <- names(JSONResult)
+  JSONResult <- getJSON(content)    
+  attrs <- list()
+  attrNames <- names(JSONResult)
+  tmpObj <- NULL
+  
   for(i in 1:length(JSONResult)) {
-    assign(n[i], JSONResult[[i]])
+    attrs[[attrNames[i]]] <- JSONResult[[i]]
   }
-
+  
   #
   # create an object whose value is either the default or the value set in the
-  # name parameter.  This allows the object to exist prior to using the UI
+  # name parameter. This allows the object to exist prior to using the UI
   #
-  if (!is.null(default)) {
-    x <- default
+  if (!is.null(attrs$default)) {
+    tmpObj <- attrs$default
   }
   
   #
   # if `name` variable exists, use it instead of default
   #
-  if (!is.null(name)) {
-    if (exists(name)) {
-      x <- get(name)  
+  if (!is.null(attrs$name)) {
+    if (exists(attrs$name)) {
+      tmpObj <- get(attrs$name)  
     }
   }
   
@@ -111,11 +105,11 @@ deployrInput <- function(content) {
   # it is! Make sure it is not null so that we can test it in the rest of this
   # function
   #
-  if (is.null(render)){
-    if (!is.null(levels)) {
-      render <- "factor"
+  if (is.null(attrs$render)){
+    if (!is.null(attrs$levels)) {
+      attrs$render <- "factor"
     } else {
-      render <- "unknown"
+      attrs$render <- "unknown"
     }
   }
   
@@ -123,26 +117,26 @@ deployrInput <- function(content) {
   # Assign `factor` and `ordered-factor` with `levels|labels` if present
   # to the `default`. Skip if object already exsists and use that.
   #
-  if (!exists(name) && render %in% c("factor", "ordered")) {
-    if (!is.null(labels) && !is.null(levels)) {      
-      x <- get(render)(x, levels = levels, labels = labels)
-    } else if (!is.null(levels)) {
-      x <- get(render)(x, levels = levels)
+  if (!exists(attrs$name) && attrs$render %in% c("factor", "ordered")) {
+    if (!is.null(attrs$labels) && !is.null(attrs$levels)) {      
+      tmpObj <- get(attrs$render)(tmpObj, levels = attrs$levels, labels = attrs$labels)
+    } else if (!is.null(attrs$levels)) {
+      tmpObj <- get(attrs$render)(tmpObj, levels = attrs$levels)
     } else {
-      x <- get(render)(x) 
+      tmpObj <- get(attrs$render)(tmpObj) 
     }
   }
   
-  if (!is.null(render)) {
-    if( render == "integer" ) {
-      x <- as.integer(x)
-    } else if( render == "logical" ) {
-      x <- as.logical(x)
+  if (!is.null(attrs$render)) {
+    if( attrs$render == "integer" ) {
+      tmpObj <- as.integer(tmpObj)
+    } else if( attrs$render == "logical" ) {
+      tmpObj <- as.logical(tmpObj)
     }
   }
   
   # Not yet using min, max  
-  assign(name, x, envir = .GlobalEnv) 
+  assign(attrs$name, tmpObj, envir = .GlobalEnv)
 }
 
 #' Define R Script Inputs \bold{deprecated}.

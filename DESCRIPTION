@@ -9,7 +9,7 @@ Date: 2016-05-03
     person("Rich", "Calaway", email = "richcala@microsoft.com", role = "cre"))
 Author: Josee Martens [aut]
 Maintainer: Rich Calaway <richcala@microsoft.com>
-URL: http://go.microsoft.com/fwlink/?LinkId=692163
+URL: https://go.microsoft.com/fwlink/?LinkId=692163
 BugReports: https://github.com/Microsoft/deployrUtils/issues
 Description: The goal of this package is to solve several R portability issues
     that arise when developing R analytics for use in your local R environment
