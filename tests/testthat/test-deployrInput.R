@@ -83,50 +83,50 @@ describe("deployrInput", {
 })
 
 describe("deployrInput ignore default", {
-  it("should use exsisting 'integer' value", {
+  it("should use existing 'integer' value", {
     input_integer <- 10
     deployrInput('{ "name": "input_integer", "render": "integer", "default": 1 } ')
     expect_equal(input_integer, 10)
   })
 
-  it("should use exsisting 'numeric' value", { 
+  it("should use existing 'numeric' value", { 
     input_numeric <- 10
     deployrInput('{ "name": "input_numeric", "render": "numeric", "default": 2 } ')
     expect_equal(input_numeric, 10)
   })
    
-  it("should use exsisting 'logical' value", { 
+  it("should use existing 'logical' value", { 
     input_logical <- FALSE
     deployrInput('{ "name": "input_logical", "render": "logical", "default": "TRUE" } ')
     expect_equal(input_logical, FALSE)
   })
 
-  it("should use exsisting 'character' value", { 
+  it("should use existing 'character' value", { 
     input_character <- "Hello World"
     deployrInput('{ "name": "input_character", "render": "character", "default": "Sue" } ')
     expect_equal(input_character, "Hello World")
   })
 
-  it("should use exsisting 'factor' value", { 
+  it("should use existing 'factor' value", { 
     input_factor <- factor(c("bpm"))
     deployrInput( '{ "name": "input_factor", "render": "factor", "default": "png" } ')
     expect_equal(as.character(input_factor), "bpm")
   })
   
-  it("should use exsisting 'factor' value with 'levels' and 'labels'", { 
+  it("should use existing 'factor' value with 'levels' and 'labels'", { 
     input_factor_levels_labels <- factor(c(7), levels = c(5, 6, 7, 8), labels = c("png", "bmp", "jpg", "tiff"))
     deployrInput( '{ "name": "input_factor_levels_labels", "render": "factor", levels": [5, 6, 7, 8], "labels": [ "png", "bmp", "jpg", "tiff" ], "default": 5 } ')
     expect_equal(as.character(input_factor_levels_labels), "jpg")
     expect_equal(input_factor_levels_labels, factor(c(7), levels = c(5, 6, 7, 8), labels = c("png", "bmp", "jpg", "tiff")))
   })
 
-  it("should use exsisting 'ordered factor' value", {
+  it("should use existing 'ordered factor' value", {
     input_ordered <- factor(c("Best"), ordered = TRUE)
     deployrInput('{ "name": "input_ordered", "render": "ordered", "levels": [ "Good", "Better", "Best" ], "default": "Good" } ')
     expect_equal(as.character(input_ordered), "Best")
   })
   
-  it("should use exsisting 'ordered factor' value with 'levels' and 'labels'", { 
+  it("should use existing 'ordered factor' value with 'levels' and 'labels'", { 
     input_ordered_levels_labels <- factor(c(3), levels = c(1, 2, 3), labels = c("Good", "Better", "Best"),  ordered = TRUE)
     deployrInput('{ "name": "input_ordered_levels_labels", "render": "ordered", "levels": [1, 2, 3], "labels": [ "Good", "Better", "Best" ], "default": "1" } ')
     expect_equal(as.character(input_ordered_levels_labels), "Best")
